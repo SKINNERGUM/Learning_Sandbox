@@ -13,7 +13,15 @@ const handlePageLoad = (count) => {
   if (count === 1) {
     const message = `${developer.name} wants to hit ${developer.goal}+ LPA.`;
     alert(message);
-    const dev = prompt("What are your skills?");
+    const dev = prompt("What new skills have you learned?");
+    const forgotten_skill = prompt("What skill have you forgotten?");
+    const forgotten_index = developer.skills.indexOf(forgotten_skill);
+    if (forgotten_index > -1) {
+      developer.skills.splice(forgotten_index, 1);
+    }
+    if (dev) {
+      developer.skills.push(dev);
+    }
     alert(`Great! ${developer.name} has skills in ${developer.skills.join(', ')}. You mentioned: ${dev}. Keep learning and improving!`);
   }
 };
