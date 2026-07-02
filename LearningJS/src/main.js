@@ -15,7 +15,7 @@ const handlePageLoad = (count) => {
     alert(message);
     const dev = prompt("What new skills have you learned?");
     const forgotten_skill = prompt("What skill have you forgotten?");
-    const forgotten_index = developer.skills.indexOf(forgotten_skill);
+    const forgotten_index = developer.skills.findIndex(skill => skill.toLowerCase() === forgotten_skill.toLowerCase());
     if (forgotten_index > -1) {
       developer.skills.splice(forgotten_index, 1);
     }
